@@ -130,5 +130,23 @@
   <ItemGroup>
     <None Include="Resources\YouWin.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nemo.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shark2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img21.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bg.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

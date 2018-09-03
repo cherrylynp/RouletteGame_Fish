@@ -20,19 +20,7 @@ namespace RouletteGame
         public int Shark;
 
 
-       
-        //public int NoBaitCount = 2;
-        //public bool isThereNoBait = false;
 
-
-
-        //public int RNDGenarator()
-        //{
-        //    Random rnRandom = new Random();
-        //    int rnd = rnRandom.Next(1, 6);
-        //    return rnd;
-
-        //}
 
         //This generates the random number
         public int RandomNUmber()
@@ -42,6 +30,11 @@ namespace RouletteGame
             rnd = myRandom.Next(1, 7);
             return rnd;
         }
+
+
+
+
+
 
 
 

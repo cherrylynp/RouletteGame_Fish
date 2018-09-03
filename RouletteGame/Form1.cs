@@ -22,12 +22,21 @@ namespace RouletteGame
             InitializeComponent();
             this.Text = "Roullete Game";
 
-
             // Turn these buttons off
             btnCatch.Enabled = false;
             btnLetGo.Enabled = false;
             btnPlayAgain.Enabled = false;
         }
+
+        //This button shows the instruction on how to play the game
+        private void btnHowToPlay_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("First cast your line then catch the fish , but be careful because 1 of these 6 fishes " +
+                            "contains a shark! You have two chances to unhook or release the shark so use them wisely. \n\n Good Luck!");
+
+        }
+
+
 
         private void btnCastLine_Click(object sender, EventArgs e)
         {
@@ -62,12 +71,10 @@ namespace RouletteGame
 
 
 
-
-
         public void Catch()
         {
             myFish.count = myFish.count + 1;
-            lblNoCast.Text = "Cast" + myFish.count;
+            lblNoCast.Text = "Cast :  " + myFish.count;
 
             //Catch the Fish button used (No Shark caught)
             if (myFish.count != myFish.Shark && myFish.clickCounter != 0)
@@ -89,12 +96,13 @@ namespace RouletteGame
             {
                 myFish.loseCount = myFish.loseCount + 1;
 
-                pbxFish.Image = RouletteGame.Resource1.shark;
+                pbxFish.Image = RouletteGame.Resource1.shark2;
                 playEating();
 
-                DialogResult result = MessageBox.Show("Oh No! You caught the Shark");
+                DialogResult result = MessageBox.Show("Oh No! You caught the Shark! You get eaten!");
 
                 pbxWinLose.Image = RouletteGame.Resource1.tryAgain;
+
 
 
                 btnCatch.Enabled = false;
@@ -102,6 +110,8 @@ namespace RouletteGame
                 btnCastLine.Enabled = false;
 
                 btnPlayAgain.Enabled = true;
+
+
 
                 lblWinLose.Text = "Wins: " + myFish.winCount + " " + "Loses: " + myFish.loseCount;
 
@@ -119,7 +129,7 @@ namespace RouletteGame
             lblLetGo.Text = "Passes Left:  " + myFish.clickCounter;
             lblNoCast.Text = "No Cast Used: " + myFish.count;
 
-            //Button pressed to pass the money
+            //Button pressed to let go the fish
             if (myFish.count != myFish.Shark)
             {
                 pbxFish.Image = RouletteGame.Resource1.Fish;
@@ -132,11 +142,11 @@ namespace RouletteGame
             }
 
 
-            //Button pressed to pass the bomb.( Player Wins )
+            //Button pressed to pass the shark.( Player Wins )
             if (myFish.count == myFish.Shark)
             {
                 myFish.winCount = myFish.winCount + 1;
-                pbxFish.Image = RouletteGame.Resource1.shark;
+                pbxFish.Image = RouletteGame.Resource1.shark2;
                 pbxClap.Image = RouletteGame.Resource1.clap;
                 //clap();
                 //Playclap();
@@ -153,7 +163,7 @@ namespace RouletteGame
                     pbxClap.Image = null;
                     pbxFish.Image = RouletteGame.Resource1.Win;
                     pbxWinLose.Image = RouletteGame.Resource1.YouWin;
-                    //playMoney();
+                    playClap();
                 }
 
                 btnCastLine.Enabled = false;
@@ -165,6 +175,7 @@ namespace RouletteGame
             }
 
             if (myFish.clickCounter == 0 && myFish.count != myFish.Shark)
+
             //player only has two chances to pass
 
             {
@@ -224,11 +235,11 @@ namespace RouletteGame
         }
 
 
-        //private void playBite()
-        //{
-        //    SoundPlayer Bite = new SoundPlayer(Resource1.Bite);
-        //    Bite.Play;
-        //}
+        private void playBite()
+        {
+            SoundPlayer Bite = new SoundPlayer(Resource1.Bite);
+            Bite.Play();
+        }
 
 
 
@@ -249,10 +260,8 @@ namespace RouletteGame
             PlayAgain();
         }
 
-        private void lblNoCast_Click(object sender, EventArgs e)
-        {
 
-        }
+
     }
 
 
